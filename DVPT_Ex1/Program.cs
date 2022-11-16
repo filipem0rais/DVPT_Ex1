@@ -8,7 +8,7 @@ namespace DVPT_Ex1
         static void Main(string[] args)
         {
             double valeurFinale = 0;
-            Console.WriteLine(traitement(300,1, out valeurFinale));
+            Console.WriteLine(traitement(3000000,1000000000000000000, out valeurFinale));
             Console.WriteLine(valeurFinale);
 
         }
@@ -17,7 +17,7 @@ namespace DVPT_Ex1
         {
             try
             {
-                for (byte i = 0; i < nbIteration; i++)
+                for (int i = 0; i < nbIteration; i++)
                 {
                     valeurDepart *= 2;
                 }
@@ -25,7 +25,7 @@ namespace DVPT_Ex1
                 valeurFinale = valeurDepart;
 
                 // check if valeurFinale is a number
-                return double.IsNaN(valeurFinale) ? false : true;
+                return (!double.IsNaN(valeurFinale) && !double.IsInfinity(valeurFinale));
 
             }
             catch (OverflowException e)
